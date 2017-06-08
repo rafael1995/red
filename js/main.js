@@ -108,6 +108,7 @@ $(document).ready(function() {
         $("#produto").empty();
         listarProd(canoAlto, canoBaixo, categoria, cano, catCampo, catSociety);
     });
+    
     // Função 
     function listarProd(canoAlto, canoBaixo, categoria, cano, catCampo, catSociety) {
         var cond1;
