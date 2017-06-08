@@ -180,6 +180,14 @@ $(document).ready(function() {
             }
             // Montando Div p/ inserção no primeiro Carousel
             for (var i = 0; i < releases.length; i++) {
+
+                if(releases[i].price != 0){
+                   var value = releases[i].price;
+                    value = (value/10);
+                    value = (value).toFixed(2);
+                    releases[i].price = ( releases[i].price).toFixed(2);
+                }
+
                 $("<div class='col s12 m6 l3 center product item'> </div>")
                 $('#carousel2')
                     .owlCarousel('add',
@@ -193,7 +201,7 @@ $(document).ready(function() {
                         " <h2>" + releases[i].title + "</h2>" +
                         "<span>" + releases[i].category + "</span> " +
                         "<span class='titPrice'>R$" + releases[i].price + " </span>" +
-                        "<span class='titParc'> ou 10 x 49,90 sem juros </span>" +
+                        "<span class='titParc'> ou 10 x "+value+" sem juros </span>" +
                         "<div class='center'><a class='waves-effect waves-light btn'>COMPRAR</a> </div>" +
                         " </div>" +
                         " </div>"
@@ -215,7 +223,7 @@ $(document).ready(function() {
                         " <h2>" + sellers[i].title + "</h2>" +
                         "<span>" + sellers[i].category + "</span> " +
                         "<span class='titPrice'>R$" + sellers[i].price + " </span>" +
-                        "<span class='titParc'> ou 10 x 49,90 sem juros </span>" +
+                        "<span class='titParc'> ou 10 x "+value+" sem juros </span>" +
                         "<div class='center'><a class='waves-effect waves-light btn'>COMPRAR</a> </div>" +
                         " </div>" +
                         " </div>"
