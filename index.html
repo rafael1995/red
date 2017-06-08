@@ -3,18 +3,21 @@
 <html>
    <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Biblioteca jQuery 3.2.1 -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Arquivo principal Js -->
       <script type="text/javascript" src="js/main.js"></script>   
       <!-- Compiled and minified JavaScript -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-      <script src="js/lightslider.js"></script>
-      <link type="text/css" rel="stylesheet" href="css/lightslider.css" />
+      <!-- Plugin Jquery Owl Carousel  -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css" />
-      <!-- Compiled and minified CSS -->
+      <!-- Arquivo Principal Css -->
       <link rel="stylesheet" href="css/style.css">
+      <!-- Compiled and minified CSS -->
       <script  src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+      <!--Importação de Icons - MAterialize -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <title>  Case - Red Ventures  </title>
    </head>
@@ -23,25 +26,23 @@
       <nav>
          <div class="nav-wrapper container">
              <div id="logoMob"> </div>
-            
              <a href="#" data-activates="mobile-demo" class="button-collapse"> <i class="material-icons dp48 iconMenu">menu</i>  </a>
             <div id="logo"> <a href="#" class=" left"> <img src="http://www.raphaelfabeni.com.br/rv/images/nike-logo.png"></a> </div>
-            
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                <li><a href="sass.html">MASCULINO</a></li>
                <li><a href="badges.html">FEMININO</a></li>
                <li><a href="collapsible.html">MENINO</a></li>
                <li><a href="collapsible.html">MENINA</a></li>
-               <li><a href="collapsible.html"></a></li>
             </ul>
+             <div id="car"><a href=""><img height="30" width="30" src="img/cart.png"></a></div>
             <ul class="side-nav" id="mobile-demo">
                <li><a href="sass.html">Sass</a></li>
                <li><a href="badges.html">Components</a></li>
                <li><a href="collapsible.html">Javascript</a></li>
-               <li><a href="mobile.html">Mobile</a> <i class="material-icons dp48 iconMenu">menu</i> </li>
+               <li><a href="mobile.html">Mobile</a>  </li>
             </ul>
          </div>
-      </nav>
+      </nav> <!-- Fim Navbar -->
       <div class="s12 banner  width center">
          <img  class="responsive-img" src="http://www.raphaelfabeni.com.br/rv/images/banner.png"> 
       </div>
@@ -50,12 +51,12 @@
             <span> Chuteiras HyperVenom: </span> 
          </div>
          <div class="col s12 m6 l2 center">
-            <input type="checkbox" id="test5" class="FilterAlto" />
-            <label for="test5">Cano Alto&nbsp; </label>
+            <input type="checkbox" id="test5" class="FilterAlto " />
+            <label class="AlignAlto" for="test5">Cano Alto&nbsp; </label>
          </div>
          <div class="col s12 m6 l2 center">
-            <input type="checkbox" id="test1" class="FilterBaixo" />
-            <label for="test1">Cano baixo   </label>
+            <input type="checkbox" id="test1" class="FilterBaixo AlignBaixo" />
+            <label class="AlignBaixo" for="test1">Cano baixo   </label>
          </div>
          <div class="col s12 m6 l2 center">
             <input type="checkbox" id="test6" class="FilterCampo" />
@@ -65,7 +66,6 @@
             <input type="checkbox" id="test7" class="FilterSociety" />
             <label for="test7">Futebol Society</label>
          </div>
-         
          <div class="col s12 m6 l2 center">
             <a class="waves-effect waves-light btn btnAll ">Todos os Produtos</a>
          </div>
@@ -75,16 +75,19 @@
          <!-- inicio dos produtos -->
          <strong> <b> Mais vendidos </b> </strong>
          <div id="carousel1" class="owl-carousel owl-theme">
+             <!-- Inserção dinamica dos produtos -->
          </div>
          <strong> <b> Lançamentos </b></strong>
          <div id="carousel2" class="owl-carousel owl-theme">
+             <!-- Inserção dinamica dos produtos -->
          </div>
       </div>
       <!-- Fim dos produtos-->
-   
       </div>
+      <!-- Footer -->
       <footer >
          <h2> JUST DO IT. </h2>
+          <a class="waves-effect waves-light btn btnFooter">Todos os Produtos</a>
          <div class="s12 banner  width center">
             <img  class="responsive-img" src="img/footer.jpg"> 
          </div>

@@ -9,7 +9,7 @@ $(document).ready(function() {
         responsive: {
             0: {
                 items: 1,
-                nav: true
+                nav: false
             },
             600: {
                 items: 2,
@@ -29,7 +29,7 @@ $(document).ready(function() {
         responsive: {
             0: {
                 items: 1,
-                nav: true
+                nav: false
             },
             600: {
                 items: 2,
@@ -42,6 +42,11 @@ $(document).ready(function() {
             }
         }
     });
+    // Scroll na pagina ao clicar no botão no footer
+    $( ".btnFooter" ).click(function() {
+        $('html,body').animate({scrollTop: 600},'slow');
+    });
+
     // Inializando Variaveis de controle do Filtro
     var canoAlto = false;
     var canoBaixo = false;
@@ -49,23 +54,16 @@ $(document).ready(function() {
     var cano = false;
     var catCampo = false;
     var catSociety = false;
-  //  listarProd(canoAlto, canoBaixo, categoria, cano, catCampo, catSociety);
 
     // Verificando após alterações no select - Cano Alto
     $('.FilterAlto').change(function() {
         if (this.checked) {
-           // alert("Cano Alto marcado");
             canoAlto = true;
             cano = true;
-         //   $("#produto").empty();
             listarProd(canoAlto, canoBaixo, categoria, cano, catCampo, catSociety);
         } else if (!this.checked) {
-           // alert("cano alto desmarcado");
             canoAlto = false;
             cano = false;
-
-            //$("#produto").empty();
-
             listarProd(canoAlto, canoBaixo, categoria, cano, catCampo, catSociety);
         }
     });
@@ -77,7 +75,6 @@ $(document).ready(function() {
             $("#produto").empty();
             canoAlto = $('.FilterAlto').is(':checked');
             listarProd(canoAlto, canoBaixo, categoria, cano, catCampo, catSociety);
-
         } else if (!this.checked) {
             cano = true;
             canoBaixo = false;
@@ -108,8 +105,8 @@ $(document).ready(function() {
         $("#produto").empty();
         listarProd(canoAlto, canoBaixo, categoria, cano, catCampo, catSociety);
     });
-    
-    // Função 
+
+    // Função Principal Filter
     function listarProd(canoAlto, canoBaixo, categoria, cano, catCampo, catSociety) {
         var cond1;
         $.getJSON('data.json',  function(obj) {
@@ -146,7 +143,7 @@ $(document).ready(function() {
                 }
             } else {
                 if (categoria == "") {
-                    
+
                     if ((canoAlto && canoBaixo) || (!canoAlto && !canoBaixo)) {
                         var releases = $(obj["releases"]).filter(function(i, n) {
                             return (n['high-top'] == true || n['high-top'] == false);
@@ -179,15 +176,14 @@ $(document).ready(function() {
                             return (n.category == categoria) && (n['high-top'] == cano);
                         });
                     }
-                    
                 }
             }
             // Montando Div p/ inserção no primeiro Carousel
             for (var i = 0; i < releases.length; i++) {
-                  $("<div class='col s12 m6 l3 center product item'> </div>")
-                    $('#carousel2')
-                        .owlCarousel('add', 
-                        "<div class='col s12 m6 l3 center product item'>"+
+                $("<div class='col s12 m6 l3 center product item'> </div>")
+                $('#carousel2')
+                    .owlCarousel('add',
+                        "<div class='col s12 m6 l3 center product item'>" +
                         "<div class='container center details-product'>" +
                         " <img  class='responsive-img imgProd' src='" + releases[i].image + "'> " +
                         " <div class='icon-personalize'> " +
@@ -201,15 +197,15 @@ $(document).ready(function() {
                         "<div class='center'><a class='waves-effect waves-light btn'>COMPRAR</a> </div>" +
                         " </div>" +
                         " </div>"
-                        )
-                        .owlCarousel('update');
+                    )
+                    .owlCarousel('update');
             }
             // Montando Div p/ inserção no segundo Carousel
             for (var i = 0; i < sellers.length; i++) {
                 $("<div class='col s12 m6 l3 center product item'> </div>")
-                    $('#carousel1')
-                        .owlCarousel('add', 
-                        "<div class='col s12 m6 l3 center product item'>"+
+                $('#carousel1')
+                    .owlCarousel('add',
+                        "<div class='col s12 m6 l3 center product item'>" +
                         "<div class='container center details-product'>" +
                         " <img  class='responsive-img imgProd' src='" + sellers[i].image + "'> " +
                         " <div class='icon-personalize'> " +
@@ -223,20 +219,19 @@ $(document).ready(function() {
                         "<div class='center'><a class='waves-effect waves-light btn'>COMPRAR</a> </div>" +
                         " </div>" +
                         " </div>"
-                        )
-                        .owlCarousel('update');
+                    )
+                    .owlCarousel('update');
             }
         });
-
     }
     // Evento Click - Btn Listar Todos os produtos
-    $(".btnAll").click(function(){
-          categoria = "";
-          catSociety = false;
-          $("#produto").empty();
-          listarProd(canoAlto, canoBaixo, categoria, cano, catCampo, catSociety);
-    }); 
-       $(".btnAll").click();
+    $(".btnAll").click(function() {
+        categoria = "";
+        catSociety = false;
+        $("#produto").empty();
+        listarProd(canoAlto, canoBaixo, categoria, cano, catCampo, catSociety);
+    });
+    $(".btnAll").click();
 
-   
+
 });
